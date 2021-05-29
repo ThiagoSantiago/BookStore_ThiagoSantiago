@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		39CB0BA32661E626009EEE53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BA22661E626009EEE53 /* AppDelegate.swift */; };
-		39CB0BA52661E626009EEE53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BA42661E626009EEE53 /* SceneDelegate.swift */; };
-		39CB0BA72661E626009EEE53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BA62661E626009EEE53 /* ViewController.swift */; };
-		39CB0BAA2661E626009EEE53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB0BA82661E626009EEE53 /* Main.storyboard */; };
 		39CB0BAC2661E628009EEE53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CB0BAB2661E628009EEE53 /* Assets.xcassets */; };
 		39CB0BAF2661E628009EEE53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB0BAD2661E628009EEE53 /* LaunchScreen.storyboard */; };
 		39CB0BBA2661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BB92661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift */; };
 		39CB0BC52661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BC42661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift */; };
+		39CB0BD52661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */; };
+		39CB0BD72661E8F2009EEE53 /* BookStoreApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */; };
+		39CB0BD92661E964009EEE53 /* BookStoreApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD82661E964009EEE53 /* BookStoreApiRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,6 @@
 /* Begin PBXFileReference section */
 		39CB0B9F2661E626009EEE53 /* BookStore_ThiagoSantiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStore_ThiagoSantiago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CB0BA22661E626009EEE53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39CB0BA42661E626009EEE53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39CB0BA62661E626009EEE53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		39CB0BA92661E626009EEE53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39CB0BAB2661E628009EEE53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39CB0BAE2661E628009EEE53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CB0BB02661E628009EEE53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +46,9 @@
 		39CB0BC02661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookStore_ThiagoSantiagoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CB0BC42661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore_ThiagoSantiagoUITests.swift; sourceTree = "<group>"; };
 		39CB0BC62661E628009EEE53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiSetupProtocol.swift; sourceTree = "<group>"; };
+		39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiError.swift; sourceTree = "<group>"; };
+		39CB0BD82661E964009EEE53 /* BookStoreApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +99,8 @@
 		39CB0BA12661E626009EEE53 /* BookStore_ThiagoSantiago */ = {
 			isa = PBXGroup;
 			children = (
+				39CB0BD22661E76A009EEE53 /* Network */,
 				39CB0BA22661E626009EEE53 /* AppDelegate.swift */,
-				39CB0BA42661E626009EEE53 /* SceneDelegate.swift */,
-				39CB0BA62661E626009EEE53 /* ViewController.swift */,
-				39CB0BA82661E626009EEE53 /* Main.storyboard */,
 				39CB0BAB2661E628009EEE53 /* Assets.xcassets */,
 				39CB0BAD2661E628009EEE53 /* LaunchScreen.storyboard */,
 				39CB0BB02661E628009EEE53 /* Info.plist */,
@@ -126,6 +124,24 @@
 				39CB0BC62661E628009EEE53 /* Info.plist */,
 			);
 			path = BookStore_ThiagoSantiagoUITests;
+			sourceTree = "<group>";
+		};
+		39CB0BD22661E76A009EEE53 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				39CB0BD32661E77A009EEE53 /* Workers */,
+				39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */,
+				39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */,
+				39CB0BD82661E964009EEE53 /* BookStoreApiRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		39CB0BD32661E77A009EEE53 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +249,6 @@
 			files = (
 				39CB0BAF2661E628009EEE53 /* LaunchScreen.storyboard in Resources */,
 				39CB0BAC2661E628009EEE53 /* Assets.xcassets in Resources */,
-				39CB0BAA2661E626009EEE53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CB0BA72661E626009EEE53 /* ViewController.swift in Sources */,
 				39CB0BA32661E626009EEE53 /* AppDelegate.swift in Sources */,
-				39CB0BA52661E626009EEE53 /* SceneDelegate.swift in Sources */,
+				39CB0BD52661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift in Sources */,
+				39CB0BD72661E8F2009EEE53 /* BookStoreApiError.swift in Sources */,
+				39CB0BD92661E964009EEE53 /* BookStoreApiRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +312,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		39CB0BA82661E626009EEE53 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39CB0BA92661E626009EEE53 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		39CB0BAD2661E628009EEE53 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
