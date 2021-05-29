@@ -15,6 +15,9 @@
 		39CB0BD52661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */; };
 		39CB0BD72661E8F2009EEE53 /* BookStoreApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */; };
 		39CB0BD92661E964009EEE53 /* BookStoreApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD82661E964009EEE53 /* BookStoreApiRequest.swift */; };
+		39CB0BDC2661F0BF009EEE53 /* BookListApiServiceSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BDB2661F0BF009EEE53 /* BookListApiServiceSetup.swift */; };
+		39CB0BDE2662B529009EEE53 /* BookListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BDD2662B529009EEE53 /* BookListWorker.swift */; };
+		39CB0BE12662B711009EEE53 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BE02662B711009EEE53 /* BooksList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiSetupProtocol.swift; sourceTree = "<group>"; };
 		39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiError.swift; sourceTree = "<group>"; };
 		39CB0BD82661E964009EEE53 /* BookStoreApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreApiRequest.swift; sourceTree = "<group>"; };
+		39CB0BDB2661F0BF009EEE53 /* BookListApiServiceSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListApiServiceSetup.swift; sourceTree = "<group>"; };
+		39CB0BDD2662B529009EEE53 /* BookListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListWorker.swift; sourceTree = "<group>"; };
+		39CB0BE02662B711009EEE53 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		39CB0BD22661E76A009EEE53 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				39CB0BDF2662B6FE009EEE53 /* Models */,
 				39CB0BD32661E77A009EEE53 /* Workers */,
 				39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */,
 				39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */,
@@ -140,8 +147,26 @@
 		39CB0BD32661E77A009EEE53 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				39CB0BDA2661F09A009EEE53 /* BookList */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		39CB0BDA2661F09A009EEE53 /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				39CB0BDB2661F0BF009EEE53 /* BookListApiServiceSetup.swift */,
+				39CB0BDD2662B529009EEE53 /* BookListWorker.swift */,
+			);
+			path = BookList;
+			sourceTree = "<group>";
+		};
+		39CB0BDF2662B6FE009EEE53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39CB0BE02662B711009EEE53 /* BooksList.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CB0BE12662B711009EEE53 /* BooksList.swift in Sources */,
 				39CB0BA32661E626009EEE53 /* AppDelegate.swift in Sources */,
 				39CB0BD52661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift in Sources */,
 				39CB0BD72661E8F2009EEE53 /* BookStoreApiError.swift in Sources */,
+				39CB0BDC2661F0BF009EEE53 /* BookListApiServiceSetup.swift in Sources */,
+				39CB0BDE2662B529009EEE53 /* BookListWorker.swift in Sources */,
 				39CB0BD92661E964009EEE53 /* BookStoreApiRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

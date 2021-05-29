@@ -11,7 +11,7 @@ protocol BookStoreApiRequestProtocol {
     func request(_ request: BookStoreApiSetupProtocol, completion: @escaping (Result<Data, BookStoreApiError>) -> Void)
 }
 
-class BookStoreApiRequest: BookStoreApiRequestProtocol {
+final class BookStoreApiRequest: BookStoreApiRequestProtocol {
     
     func request(_ request: BookStoreApiSetupProtocol, completion: @escaping (Result<Data, BookStoreApiError>) -> Void) {
         var  jsonData = NSData()
