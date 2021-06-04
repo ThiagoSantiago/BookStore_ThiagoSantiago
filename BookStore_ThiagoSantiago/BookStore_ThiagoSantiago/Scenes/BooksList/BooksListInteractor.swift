@@ -9,6 +9,7 @@ import Foundation
 
 protocol BooksListInteracting: AnyObject {
     var isSearching: Bool { get }
+    var showingFavorites: Bool { get }
     func loadData()
     func resetPages()
     func getNextPage()
@@ -27,6 +28,8 @@ final class BooksListInteractor: BooksListInteracting {
     private var currentPage = 0
     private var booksList: [BooksDto] = []
     var isSearching: Bool = false
+    var showingFavorites: Bool = false
+    private let userDefaults = UserDefaults.standard
        
     init(presenter: BooksListPresenting, worker: BooksListWorking = BooksListWorker()) {
            self.presenter = presenter
@@ -53,12 +56,18 @@ final class BooksListInteractor: BooksListInteracting {
     }
     
     func listAllBooks() {
+        showingFavorites = false
         presenter.showBooksList(books: booksList)
     }
     
     func listAllFavoriteBooks() {
+        showingFavorites = true
         let favoriteBooksIds = fetchFavoriteBooks()
-        let favoriteBooks = booksList.filter { favoriteBooksIds.contains($0.bookId) }
+        var favoriteBooks: [BooksDto] = []
+        
+        favoriteBooksIds.forEach { bookId in
+            favoriteBooks = booksList.filter { $0.bookId == bookId}
+        }
         
         presenter.presentFavoriteBooks(books: favoriteBooks)
     }
@@ -66,7 +75,7 @@ final class BooksListInteractor: BooksListInteracting {
     private func fetchFavoriteBooks() -> [String] {
         var favoriteBooks: [String] = []
         
-        if let books = UserDefaults.standard.object(forKey: "favorite") as? [String] {
+        if let books = userDefaults.object(forKey: "BooksListFavoriteIds") as? [String] {
             favoriteBooks = books
         }
         
@@ -80,19 +89,21 @@ final class BooksListInteractor: BooksListInteracting {
     }
     
     func setBookAsFavorite(bookId: String) {
-        let favoriteBooks = fetchFavoriteBooks()
+        var favoriteBooks = fetchFavoriteBooks()
         
         if !favoriteBooks.contains(bookId) {
-            UserDefaults.standard.set(favoriteBooks, forKey: "favorite")
+            favoriteBooks.append(bookId)
+            userDefaults.set(favoriteBooks, forKey: "BooksListFavoriteIds")
+            userDefaults.synchronize()
         }
     }
     
     func removeFromFavorite(bookId: String) {
         var favoriteBooks = fetchFavoriteBooks()
         
-        favoriteBooks = favoriteBooks.filter({ $0 != bookId })
-        
-        UserDefaults.standard.set(favoriteBooks, forKey: "favorite")
+        favoriteBooks.removeAll(where: { $0 == bookId})
+        userDefaults.set(favoriteBooks, forKey: "BooksListFavoriteIds")
+        userDefaults.synchronize()
     }
     
     func searchBook(text: String) {

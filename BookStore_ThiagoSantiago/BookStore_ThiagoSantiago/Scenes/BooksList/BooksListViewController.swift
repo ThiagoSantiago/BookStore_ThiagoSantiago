@@ -117,7 +117,7 @@ extension BooksListViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.setContent(book: booksList[indexPath.row],
                         delegate: self)
         
-        if indexPath.row == booksList.count - 1 && !interactor.isSearching {
+        if indexPath.row == booksList.count - 1 && !interactor.isSearching && !interactor.showingFavorites {
             interactor.getNextPage()
         }
         
