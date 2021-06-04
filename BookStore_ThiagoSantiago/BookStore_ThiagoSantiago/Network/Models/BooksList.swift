@@ -16,16 +16,17 @@ struct Book: Decodable {
     let id: String
     let selfLink: String
     let volumeInfo: BookInfo
+    let saleInfo: BookSaleInfo
 }
 
 struct BookInfo: Decodable {
     let title: String
-    let subtitle: String
-    let authors: [String]
-    let publisher: String
+    let subtitle: String?
+    let authors: [String]?
+    let publisher: String?
     let publishedDate: String
-    let description: String
-    let pageCount: Int
+    let volumeInfoDescription: String?
+    let pageCount: Int?
     let printType: String
     let maturityRating: String
     let imageLinks: BookImageLinks
@@ -48,10 +49,16 @@ struct BookSaleInfo: Decodable {
     let isEbook: Bool
     let listPrice: BookPriceInfo?
     let retailPrice: BookPriceInfo?
-    let buyLink: String
+    let buyLink: String?
 }
 
 struct BookPriceInfo: Decodable {
     let amount: Double
     let currencyCode: String
+}
+
+enum Saleability: String, Codable {
+    case forSale = "FOR_SALE"
+    case free = "FREE"
+    case notForSale = "NOT_FOR_SALE"
 }

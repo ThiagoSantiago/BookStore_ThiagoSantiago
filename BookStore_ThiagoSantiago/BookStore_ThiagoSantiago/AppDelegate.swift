@@ -10,10 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let router = AppRouter.shared
+                
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = router.navigation
+        window?.makeKeyAndVisible()
+        
+        router.routeToBooksList()
+                
         return true
     }
 }
