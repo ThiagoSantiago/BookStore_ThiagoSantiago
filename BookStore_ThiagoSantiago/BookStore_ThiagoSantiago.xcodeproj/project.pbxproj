@@ -22,7 +22,7 @@
 		39CB0BA32661E626009EEE53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BA22661E626009EEE53 /* AppDelegate.swift */; };
 		39CB0BAC2661E628009EEE53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CB0BAB2661E628009EEE53 /* Assets.xcassets */; };
 		39CB0BAF2661E628009EEE53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB0BAD2661E628009EEE53 /* LaunchScreen.storyboard */; };
-		39CB0BBA2661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BB92661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift */; };
+		39CB0BBA2661E628009EEE53 /* BooksListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BB92661E628009EEE53 /* BooksListInteractorTests.swift */; };
 		39CB0BC52661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BC42661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift */; };
 		39CB0BD52661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD42661E8B4009EEE53 /* BookStoreApiSetupProtocol.swift */; };
 		39CB0BD72661E8F2009EEE53 /* BookStoreApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB0BD62661E8F2009EEE53 /* BookStoreApiError.swift */; };
@@ -68,7 +68,7 @@
 		39CB0BAE2661E628009EEE53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CB0BB02661E628009EEE53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39CB0BB52661E628009EEE53 /* BookStore_ThiagoSantiagoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookStore_ThiagoSantiagoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		39CB0BB92661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore_ThiagoSantiagoTests.swift; sourceTree = "<group>"; };
+		39CB0BB92661E628009EEE53 /* BooksListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListInteractorTests.swift; sourceTree = "<group>"; };
 		39CB0BBB2661E628009EEE53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39CB0BC02661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookStore_ThiagoSantiagoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CB0BC42661E628009EEE53 /* BookStore_ThiagoSantiagoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore_ThiagoSantiagoUITests.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		39CB0BB82661E628009EEE53 /* BookStore_ThiagoSantiagoTests */ = {
 			isa = PBXGroup;
 			children = (
-				39CB0BB92661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift */,
+				39CB0BB92661E628009EEE53 /* BooksListInteractorTests.swift */,
 				39CB0BBB2661E628009EEE53 /* Info.plist */,
 			);
 			path = BookStore_ThiagoSantiagoTests;
@@ -408,7 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CB0BBA2661E628009EEE53 /* BookStore_ThiagoSantiagoTests.swift in Sources */,
+				39CB0BBA2661E628009EEE53 /* BooksListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

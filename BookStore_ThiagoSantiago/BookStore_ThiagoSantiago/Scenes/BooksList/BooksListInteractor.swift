@@ -27,8 +27,6 @@ final class BooksListInteractor: BooksListInteracting {
     private var currentPage = 0
     private var booksList: [BooksDto] = []
     var isSearching: Bool = false
-    
-    private let userDefaults = UserDefaults.standard
        
     init(presenter: BooksListPresenting, worker: BooksListWorking = BooksListWorker()) {
            self.presenter = presenter
@@ -49,6 +47,7 @@ final class BooksListInteractor: BooksListInteracting {
             self?.booksList.append(contentsOf: booksDtoList)
             self?.presenter.showBooksList(books: self?.booksList ?? [])
         }, failure: { [weak self] error in
+            self?.presenter.hideLoadingView()
             self?.presenter.presentError(message: error.localizedDescription)
         })
     }
@@ -64,10 +63,10 @@ final class BooksListInteractor: BooksListInteracting {
         presenter.presentFavoriteBooks(books: favoriteBooks)
     }
     
-    func fetchFavoriteBooks() -> [String] {
+    private func fetchFavoriteBooks() -> [String] {
         var favoriteBooks: [String] = []
         
-        if let books = userDefaults.object(forKey: "BookStoreFavoriteBooksIds") as? [String] {
+        if let books = UserDefaults.standard.object(forKey: "favorite") as? [String] {
             favoriteBooks = books
         }
         
@@ -84,7 +83,7 @@ final class BooksListInteractor: BooksListInteracting {
         let favoriteBooks = fetchFavoriteBooks()
         
         if !favoriteBooks.contains(bookId) {
-            userDefaults.set(favoriteBooks, forKey: "BookStoreFavoriteBooksIds")
+            UserDefaults.standard.set(favoriteBooks, forKey: "favorite")
         }
     }
     
@@ -93,7 +92,7 @@ final class BooksListInteractor: BooksListInteracting {
         
         favoriteBooks = favoriteBooks.filter({ $0 != bookId })
         
-        userDefaults.set(favoriteBooks, forKey: "BookStoreFavoriteBooksIds")
+        UserDefaults.standard.set(favoriteBooks, forKey: "favorite")
     }
     
     func searchBook(text: String) {
