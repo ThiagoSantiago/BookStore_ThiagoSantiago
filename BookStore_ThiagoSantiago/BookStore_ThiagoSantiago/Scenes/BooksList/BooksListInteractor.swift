@@ -25,17 +25,18 @@ protocol BooksListInteracting: AnyObject {
 final class BooksListInteractor: BooksListInteracting {
     private let presenter: BooksListPresenting
     private let worker: BooksListWorking
+    private let defaultsWorker: UserDefaultsWorking
     private var currentPage = 0
     private var booksList: [BooksDto] = []
     var isSearching: Bool = false
     var showingFavorites: Bool = false
-    private let userDefaults = UserDefaults.standard
-       
-    init(presenter: BooksListPresenting, worker: BooksListWorking = BooksListWorker()) {
-           self.presenter = presenter
+    
+    init(presenter: BooksListPresenting, worker: BooksListWorking = BooksListWorker(), defaultsWorker: UserDefaultsWorking = UserDefaultsWorker()) {
+        self.presenter = presenter
         self.worker = worker
-       }
-       
+        self.defaultsWorker = defaultsWorker
+    }
+    
     
     func loadData() {
         presenter.showLoadingView()
@@ -62,48 +63,33 @@ final class BooksListInteractor: BooksListInteracting {
     
     func listAllFavoriteBooks() {
         showingFavorites = true
-        let favoriteBooksIds = fetchFavoriteBooks()
+        let favoriteBooksIds = defaultsWorker.getItemsSaved()
         var favoriteBooks: [BooksDto] = []
         
         favoriteBooksIds.forEach { bookId in
-            favoriteBooks = booksList.filter { $0.bookId == bookId}
+            let books = booksList.filter { $0.bookId == bookId }
+            favoriteBooks.append(contentsOf: books)
         }
         
         presenter.presentFavoriteBooks(books: favoriteBooks)
     }
     
-    private func fetchFavoriteBooks() -> [String] {
-        var favoriteBooks: [String] = []
-        
-        if let books = userDefaults.object(forKey: "BooksListFavoriteIds") as? [String] {
-            favoriteBooks = books
-        }
-        
-        return favoriteBooks
-    }
-    
     private func verifyIfIsFavorite(bookId: String) -> Bool {
-        let favoriteBooks = fetchFavoriteBooks()
+        let favoriteBooks = defaultsWorker.getItemsSaved()
         
         return favoriteBooks.contains(bookId)
     }
     
     func setBookAsFavorite(bookId: String) {
-        var favoriteBooks = fetchFavoriteBooks()
-        
-        if !favoriteBooks.contains(bookId) {
-            favoriteBooks.append(bookId)
-            userDefaults.set(favoriteBooks, forKey: "BooksListFavoriteIds")
-            userDefaults.synchronize()
-        }
+        var favoriteBook = booksList.first { $0.bookId == bookId }
+        favoriteBook?.isFavorite = true
+        defaultsWorker.saveItem(itemId: bookId)
     }
     
     func removeFromFavorite(bookId: String) {
-        var favoriteBooks = fetchFavoriteBooks()
-        
-        favoriteBooks.removeAll(where: { $0 == bookId})
-        userDefaults.set(favoriteBooks, forKey: "BooksListFavoriteIds")
-        userDefaults.synchronize()
+        var favoriteBook = booksList.first { $0.bookId == bookId }
+        favoriteBook?.isFavorite = false
+        defaultsWorker.removeItem(itemId: bookId)
     }
     
     func searchBook(text: String) {

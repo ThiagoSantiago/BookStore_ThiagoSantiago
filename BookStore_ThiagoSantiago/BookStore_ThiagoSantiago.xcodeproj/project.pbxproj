@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		391DF4FC266ADB9E00004CBF /* BooksListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DF4FB266ADB9E00004CBF /* BooksListPresenterTests.swift */; };
+		391DF4FE266AF78000004CBF /* UserDefaultsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DF4FD266AF78000004CBF /* UserDefaultsWorker.swift */; };
 		3920D80426672E2600915B7E /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920D80326672E2600915B7E /* AppRouter.swift */; };
 		3920D80D26672F3E00915B7E /* BooksListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920D80C26672F3E00915B7E /* BooksListFactory.swift */; };
 		39B1D566266941F600EA0C01 /* BooksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1D565266941F600EA0C01 /* BooksListPresenter.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		391DF4FB266ADB9E00004CBF /* BooksListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenterTests.swift; sourceTree = "<group>"; };
+		391DF4FD266AF78000004CBF /* UserDefaultsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWorker.swift; sourceTree = "<group>"; };
 		3920D80326672E2600915B7E /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		3920D80C26672F3E00915B7E /* BooksListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListFactory.swift; sourceTree = "<group>"; };
 		39B1D565266941F600EA0C01 /* BooksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenter.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				39CB0BDA2661F09A009EEE53 /* BookList */,
+				391DF4FD266AF78000004CBF /* UserDefaultsWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				39B1D56A2669422D00EA0C01 /* BooksListViewController.swift in Sources */,
 				39B1D57A266AA66000EA0C01 /* BooksListDefinitions.swift in Sources */,
 				3920D80426672E2600915B7E /* AppRouter.swift in Sources */,
+				391DF4FE266AF78000004CBF /* UserDefaultsWorker.swift in Sources */,
 				39CB0BDC2661F0BF009EEE53 /* BookListApiServiceSetup.swift in Sources */,
 				39B1D5782669A07D00EA0C01 /* UIImageView+Extension.swift in Sources */,
 				39CB0BDE2662B529009EEE53 /* BookListWorker.swift in Sources */,

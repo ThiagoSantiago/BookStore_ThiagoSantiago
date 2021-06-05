@@ -144,7 +144,7 @@ final class BooksListInteractorTests: XCTestCase {
     
     func testSetBookAsFavorite() {
         sut.setBookAsFavorite(bookId: "1")
-        
+       
     }
     
     func testRemoveFromFavorite() {

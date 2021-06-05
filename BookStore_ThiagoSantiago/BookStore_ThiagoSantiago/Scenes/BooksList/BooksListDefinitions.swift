@@ -26,5 +26,5 @@ struct BooksDto {
     let title: String
     let subtitle: String?
     let imageUrl: String
-    let isFavorite: Bool
+    var isFavorite: Bool
 }
