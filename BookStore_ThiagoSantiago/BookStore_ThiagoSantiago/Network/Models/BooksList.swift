@@ -25,7 +25,7 @@ struct BookInfo: Decodable {
     let authors: [String]?
     let publisher: String?
     let publishedDate: String
-    let volumeInfoDescription: String?
+    let description: String?
     let pageCount: Int?
     let printType: String
     let maturityRating: String

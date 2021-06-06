@@ -41,6 +41,6 @@ final class BooksListPresenter: BooksListPresenting {
     }
     
     func presentBookDetails(book: BooksDto) {
-        // TODO: call router to move to Book detail
+        AppRouter.shared.routeToBookDetails(book: book)
     }
 }

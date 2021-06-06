@@ -41,15 +41,24 @@ final class BooksListInteractor: BooksListInteracting {
     func loadData() {
         presenter.showLoadingView()
         worker.getBooksList (pageIndex: currentPage, success: { [weak self] books in
-            self?.presenter.hideLoadingView()
+            guard let self = self else { return }
+            self.presenter.hideLoadingView()
+            
             let booksDtoList = books.items.map { BooksDto(bookId: $0.id,
                                                           title: $0.volumeInfo.title,
                                                           subtitle: $0.volumeInfo.subtitle,
                                                           imageUrl: $0.volumeInfo.imageLinks.thumbnail,
-                                                          isFavorite: self?.verifyIfIsFavorite(bookId: $0.id) ?? false)
+                                                          isFavorite: self.verifyIfIsFavorite(bookId: $0.id),
+                                                          description: $0.volumeInfo.description ?? "",
+                                                          authors: $0.volumeInfo.authors,
+                                                          numberOfPages: $0.volumeInfo.pageCount,
+                                                          publisher: $0.volumeInfo.publisher,
+                                                          buyLink: $0.saleInfo.buyLink)
             }
-            self?.booksList.append(contentsOf: booksDtoList)
-            self?.presenter.showBooksList(books: self?.booksList ?? [])
+            
+            self.booksList.append(contentsOf: booksDtoList)
+            self.booksList = self.booksList.uniqued()
+            self.presenter.showBooksList(books: self.booksList)
         }, failure: { [weak self] error in
             self?.presenter.hideLoadingView()
             self?.presenter.presentError(message: error.localizedDescription)

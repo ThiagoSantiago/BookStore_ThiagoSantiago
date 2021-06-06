@@ -21,10 +21,15 @@ struct BooksListDefinitions {
     }
 }
 
-struct BooksDto {
+struct BooksDto: Hashable {
     let bookId: String
     let title: String
     let subtitle: String?
     let imageUrl: String
     var isFavorite: Bool
+    let description: String
+    let authors: [String]?
+    let numberOfPages: Int?
+    let publisher: String?
+    let buyLink: String?
 }
