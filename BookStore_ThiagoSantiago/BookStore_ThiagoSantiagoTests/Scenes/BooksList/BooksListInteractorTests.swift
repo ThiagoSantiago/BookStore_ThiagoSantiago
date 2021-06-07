@@ -54,7 +54,7 @@ final class BooksListPresenterMock: BooksListPresenting {
 final class BooksListWorkerMock: BooksListWorking {
     var shouldFail = false
     
-    var bookList = BooksList(totalItems: 3, items: [Book(id: "1", selfLink: "", volumeInfo: BookInfo(title: "Delphi para Android e iOS", subtitle: "Desenvolvendo aplicativos móveis", authors: ["William Duarte"], publisher: "Brasport", publishedDate: "2015-09-01", volumeInfoDescription: "Inovar, empreender, criar e sonhar! Em um mundo cada vez mais conectado, inovar é sinônimo de criatividade e inteligência. Eletrônicos como celulares e dispositivos “vestíveis” já fazem parte do nosso dia a dia. Pensando nisso, nada melhor que colocar aquela sua ideia em prática: empreender criando aplicativos de sucesso. Com este livro será possível aprender como desenvolver aplicativos para dispositivos móveis, sejam celulares, tablets, relógios, óculos, etc. Inclui tópicos sobre Firemonkey, layouts responsivos, sensores, bancos de dados embarcado SQLite, câmera fotográfica, geolocalização (GPS), monetização, notificações e muito mais. Utilizando o Delphi, seus aplicativos serão desenvolvidos de forma amigável, simples e rápida. Ganhe dinheiro juntando criatividade, inovação e DELPHI! Prefácios de Marco Cantù e Claudio Nasajon", pageCount: 216, printType: "BOOK", maturityRating: "NOT_MATURE", imageLinks: BookImageLinks(smallThumbnail: "", thumbnail: ""), language: "un", previewLink: "", infoLink: "", categories: ["Computers"], averageRating: nil, ratingCount: nil), saleInfo: BookSaleInfo(country: "BR", saleability: "FOR_SALE", isEbook: true, listPrice: nil, retailPrice: nil, buyLink: nil))])
+    var bookList = BooksList(totalItems: 3, items: [Book(id: "1", selfLink: "", volumeInfo: BookInfo(title: "Delphi para Android e iOS", subtitle: "Desenvolvendo aplicativos móveis", authors: ["William Duarte"], publisher: "Brasport", publishedDate: "2015-09-01", description: "Inovar, empreender, criar e sonhar! Em um mundo cada vez mais conectado, inovar é sinônimo de criatividade e inteligência. Eletrônicos como celulares e dispositivos “vestíveis” já fazem parte do nosso dia a dia. Pensando nisso, nada melhor que colocar aquela sua ideia em prática: empreender criando aplicativos de sucesso. Com este livro será possível aprender como desenvolver aplicativos para dispositivos móveis, sejam celulares, tablets, relógios, óculos, etc. Inclui tópicos sobre Firemonkey, layouts responsivos, sensores, bancos de dados embarcado SQLite, câmera fotográfica, geolocalização (GPS), monetização, notificações e muito mais. Utilizando o Delphi, seus aplicativos serão desenvolvidos de forma amigável, simples e rápida. Ganhe dinheiro juntando criatividade, inovação e DELPHI! Prefácios de Marco Cantù e Claudio Nasajon", pageCount: 216, printType: "BOOK", maturityRating: "NOT_MATURE", imageLinks: BookImageLinks(smallThumbnail: "", thumbnail: ""), language: "un", previewLink: "", infoLink: "", categories: ["Computers"], averageRating: nil, ratingCount: nil), saleInfo: BookSaleInfo(country: "BR", saleability: "FOR_SALE", isEbook: true, listPrice: nil, retailPrice: nil, buyLink: nil))])
     
     func getBooksList(pageIndex: Int, success: @escaping (BooksList) -> Void, failure: @escaping (BookStoreApiError) -> Void) {
         if shouldFail {
@@ -152,7 +152,17 @@ final class BooksListInteractorTests: XCTestCase {
     }
     
     func testMoveToBookDetail() {
-        let book = BooksDto(bookId: "1", title: "Delphi para Android e iOS", subtitle: "Desenvolvendo aplicativos móveis", imageUrl: "", isFavorite: true)
+        let book = BooksDto(bookId: "1",
+                            title: "Delphi para Android e iOS",
+                            subtitle: "Desenvolvendo aplicativos móveis",
+                            imageUrl: "",
+                            isFavorite: true,
+                            description: "",
+                            authors: nil,
+                            numberOfPages: nil,
+                            publisher: nil,
+                            buyLink: nil)
+        
         sut.moveToBookDetail(book: book)
         
         XCTAssertEqual(presenterMock.didPresentBookDetails, 1)

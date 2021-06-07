@@ -46,11 +46,16 @@ final class BooksListPresenterTests: XCTestCase {
         return presenter
     }()
     private let book = BooksDto(bookId: "1",
-                        title: "Delphi para Android e iOS",
-                        subtitle: "Desenvolvendo aplicativos móveis",
-                        imageUrl: "",
-                        isFavorite: true)
-
+                                title: "Delphi para Android e iOS",
+                                subtitle: "Desenvolvendo aplicativos móveis",
+                                imageUrl: "",
+                                isFavorite: true,
+                                description: "",
+                                authors: nil,
+                                numberOfPages: nil,
+                                publisher: nil,
+                                buyLink: nil)
+    
     func testShowLoadingView() {
         sut.showLoadingView()
         
